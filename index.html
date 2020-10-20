@@ -5,335 +5,768 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Rice Sushi Bar</title>
 	<link rel="stylesheet" href="style.css">
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="rice-js.js" defer=" "></script>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&display=swap" rel="stylesheet">
 </head>
 <body>
 	
 		   <div class="top-info navbar-fixed-top">
-		   	<div class="container top-wrap row">
-		   	 <div class="top-content col-md-6">
-		   	 	 <span><button class="btn-shoop"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></button> </span><span id="amount" class="red-info"> - 0</span>, <img id="hrivna" src="img/hryvnia.svg" alt="">
-                   <span id="sum" class="red-info"> - 0</span> грн</span>
+		   	<div class="container top-wrap justify-space-between">
+		   	 <div class="top-content">
+		   	 	 <span>
+		   	 	 	<button class="btn-shoop"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></button>
+		   	 	 </span>
+		   	 	 <span id="amount" class="red-info"> - 0</span>, <img id="hrivna" src="img/hryvnia.svg" alt="">
+                   <span id="sum" class="red-info"> - 0</span>грн
                   
               </div>
 
-		   	 	<div class="top-content col-md-6"><button class="btn-check btn-top" onclick="">Оформить доставку</button> </div>
+		   	 	<div class="top-content"><button class="btn-check btn-top" onclick="makeOrder()">Оформить доставку</button> </div>
                
 		   </div> 
 		</div>
-		    <header class="container">  
-		    	<div class="row header">
-		    		<div class="col-md-4">
+		    <header class="container container-header">  
+		    	 <div class="row header">
+		    		<div class="contacts">
 		    						<img class="social" src="img/phone.png" alt="">
 		    					      +38(095) 37 69 053
 		    					</div>
-		    		<div class="brend col-md-4">
-		    			<h1>•Sushi bar RICE•</h1>
+		    		<div class="">
+		    			<img src="img/logo.png" alt="">
+		    			
                         <p id="description">Доставка японской кухни по всему Херсону</p><br>
 		    		</div>
-		    		<div class=" col-md-4">
-		    				<div class="row social-wrap">
+		    		<div class="">
+		    				<div class="row social-wrap contacts">
 		    					<div class="col-md-12 instagram">
 		    						<a href="https://www.instagram.com/rice_sushi_bar/?hl=ru"><img class="social" src="img/instagram-sketched.png" alt="">•Sushi bar RICE•</a>
 		    					</div>
 		    					
 		    				</div>
 		    		</div>
-		    	</div>
+		    	</div> 
 		   
 	      </header>
 	      <div class="background">
  <div class="container ">
     <div class="row navbar-wrap ">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Меню:</a>
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-         <i class="fa fa-bars"></i>
-        </button>
+      
       </div>
 
-      <div class="navbar-collapse  menu col-md-11">
+      <div class="menu col-md-11">
+
+
+      	<select style="" name="select" class="mobile-filter" id="" onchange="filter(this)">
+      		<option value="all">Все</option>
+      		<option value="set">Сеты</option>
+      		<option value="roll">Ролы</option>
+      		<option value="">Супы</option>
+      		<option value="">Лапша</option>
+      		<option value="">Маки</option>
+      		<option value="">Добвки</option>
+      		
+      	</select>
 
         <ul class="filter">
-          <li class="active"><a href="#">Сеты</a></li>
-          <li><a href="#">Ролы</a></li>
-          <li><a href="#">Супы</a></li>
-          <li><a href="#">Лапша/Рис</a></li>
-          <li><a href="#">Маки</a></li>
-          <li><a href="#">Добавки</a></li>
+       	  <li id="all">Все</li>
+          <li id="set">Сеты</li>
+          <li id="roll">Ролы</li>
+          <li>Супы</li>
+          <li>Лапша/Рис</li>
+          <li>Маки</li>
+          <li>Добавки</li>
+        
         </ul>
       </div>
     </div>
   </div>
 </div>
 <div class=" container-product">
-	<div class="row product-row justify-content-around">
-
-		      <div class="product-box__item set col-md-4">
+	<div class=" product-row">
+			
+		      <div class="product-box__item set" id="">
                     <p class="product-box__title">Сет «Rice max»</p>
                     <div class="product-wrap">
-						
-                    <div class="product-box__img">
-
-                    	<p class="price price-number"> 530 грн</p>
-                        <img class="img-fluid" src="img/products/IMG_3386.jpeg">
-                    </div>
-                    <div class="product-box__meta">
-
-                        <div class="text-inside">
-                        	<p class="inside-inside">
-                        
-                        	Состав:<br> 3 ролла, гункан 4 шт. Вес: 1600 грам
-								
-                             <span class="more">Подробнее...</span>
-								
-							</p>
-							<span class="more">Подробнее...</span>
-								
-								<div class="show-more">
-									 <img class="" src="img/products/IMG_3386.jpeg" alt="">
-									 <div class="composition-wrap">
-									 		<div class="sostav"><h3>Сет «Rice max»</h3> <p class="price-number"> 530 грн</p></div>
+                    	<div class="product-box__img">
+                    		<p class="price price-number">530 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3386.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 3 ролла, гункан 4 шт. Вес: 1600 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3386.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «Rice max»</h3> <p class="price-number"> 530 грн</p></div>
 									 		<div class="composition"><p>Состав:<br> маки с огурцом, маки с авокадо,
-												Ясай-маки (болгарский перец, помидор, авокадо, огурец, такуан, салатный лист), vegan-Калифорния в кунжуте (авокадо, огурец, болгарский перец, такуан), гункан с чукой, 4 шт.</p></div>
-								 				<button class="product-box__btn btn-check "><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
-								</div>
-
-
-								</div>
-                        </div>
-                        
-                        <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
-
-                    </div>
-                </div>
-                </div>
-
-
-                 <div class="product-box__item roll col-md-4">
-                    <p class="product-box__title">Калифорния в кунжуте с крабом</p>
-                    <div class="product-wrap">
-						
-                    <div class="product-box__img">
-
-                    	<p class="price price-number"> 92 грн</p>
-                        <img class="img-fluid" src="img/products/949E0F83-DE1F-4F5A-A268-73680DAF218D.jpeg">
-                    </div>
-                    <div class="product-box__meta">
-
-                        <div class="text-inside">
-                        	<p class="inside-inside">
-                        
-                        	Состав:<br> Нежный сыр, огурец, мясом снежного краба
-								
-                             <span class="more">Подробнее...</span>
-								
-							</p>
-							<span class="more">Подробнее...</span>
-								
-								<div class="show-more">
-									 <img class="" src="img/products/949E0F83-DE1F-4F5A-A268-73680DAF218D.jpeg" alt="">
-									 <div class="composition-wrap">
-									 		<div class="sostav"><h3>Калифорния в кунжуте с крабом</h3> <p class="price-number"> 92 грн</p></div>
-									 		<div class="composition"><p>Состав:<br>Калифорния в кунжуте с крабом</p></div>
+												Ясай-маки (болгарский перец, помидор, авокадо, огурец, такуан, салатный лист), vegan-Калифорния в кунжуте (авокадо, огурец, болгарский перец, такуан), гункан с чукой, 4 шт.</p>
+											</div>
 								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
-								</div>
-
-
-								</div>
-                        </div>
-                        
-                        <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
-
-                    </div>
-                </div>
-                </div>
-
-
-                 <div class="product-box__item set col-md-4">
-                    <p class="product-box__title">Сет «Rice max»</p>
-                    <div class="product-wrap">
-						
-                    <div class="product-box__img">
-
-                    	<p class="price price-number"> 530 грн</p>
-                        <img class="img-fluid" src="img/products/IMG_3386.jpeg">
-                    </div>
-                    <div class="product-box__meta">
-
-                        <div class="text-inside">
-                        	<p class="inside-inside">
-                        
-                        	Состав:<br> 3 ролла, гункан 4 шт. Вес: 1600 грам
-								
-                             <span class="more">Подробнее...</span>
-								
-							</p>
-							<span class="more">Подробнее...</span>
-								
-								<div class="show-more">
-									 <img class="show-img" src="img/products/IMG_3386.jpeg" alt="">
-									 <div class="composition-wrap">
-									 		<div class="sostav"><h3>Сет «Rice max»</h3> <p class="price-number"> 530 грн</p></div>
-									 		<div class="composition"><p>Состав:<br> маки с огурцом, маки с авокадо,
-												Ясай-маки (болгарский перец, помидор, авокадо, огурец, такуан, салатный лист), vegan-Калифорния в кунжуте (авокадо, огурец, болгарский перец, такуан), гункан с чукой, 4 шт.</p></div>
-								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
-								</div>
-
-
-								</div>
-                        </div>
-                        
-                        <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
-
-                    </div>
-                </div>
-                </div>
-
-
-
-                 <div class="product-box__item set col-md-4">
-                    <p class="product-box__title">Сет «Rice max»</p>
-                    <div class="product-wrap">
-						
-                    <div class="product-box__img">
-
-                    	<p class="price price-number"> 530 грн</p>
-                        <img class="img-fluid" src="img/products/IMG_3386.jpeg">
-                    </div>
-                    <div class="product-box__meta">
-
-                        <div class="text-inside">
-                        	<p class="inside-inside">
-                        
-                        	Состав:<br> 3 ролла, гункан 4 шт. Вес: 1600 грам
-								
-                             <span class="more">Подробнее...</span>
-								
-							</p>
-							<span class="more">Подробнее...</span>
-								
-								<div class="show-more">
-									 <img class="show-img" src="img/products/IMG_3386.jpeg" alt="">
-									 <div class="composition-wrap">
-									 		<div class="sostav"><h3>Сет «Rice max»</h3> <p class="price-number"> 530 грн</p></div>
-									 		<div class="composition"><p>Состав:<br> маки с огурцом, маки с авокадо,
-												Ясай-маки (болгарский перец, помидор, авокадо, огурец, такуан, салатный лист), vegan-Калифорния в кунжуте (авокадо, огурец, болгарский перец, такуан), гункан с чукой, 4 шт.</p></div>
-								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
-								</div>
-
-
-								</div>
-                        </div>
-                        
-                        <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
-
-                    </div>
-                </div>
-                </div>
-
-
-
-
-                 <div class="product-box__item set col-md-4">
-                    <p class="product-box__title">Сет «Rice max»</p>
-                    <div class="product-wrap">
-						
-                    <div class="product-box__img">
-
-                    	<p class="price price-number"> 530 грн</p>
-                        <img class="img-fluid" src="img/products/IMG_3386.jpeg">
-                    </div>
-                    <div class="product-box__meta">
-
-                        <div class="text-inside">
-                        	<p class="inside-inside">
-                        
-                        	Состав:<br> 3 ролла, гункан 4 шт. Вес: 1600 грам
-								
-                             <span class="more">Подробнее...</span>
-								
-							</p>
-							<span class="more">Подробнее...</span>
-								
-								<div class="show-more">
-									 <img class="show-img" src="img/products/IMG_3386.jpeg" alt="">
-									 <div class="composition-wrap">
-									 		<div class="sostav"><h3>Сет «Rice max»</h3> <p class="price-number"> 530 грн</p></div>
-									 		<div class="composition"><p>Состав:<br> маки с огурцом, маки с авокадо,
-												Ясай-маки (болгарский перец, помидор, авокадо, огурец, такуан, салатный лист), vegan-Калифорния в кунжуте (авокадо, огурец, болгарский перец, такуан), гункан с чукой, 4 шт.</p></div>
-								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
-								</div>
-
-
-								</div>
-                        </div>
-                        
-                        <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
-
-                    </div>
-                </div>
-                </div>
-
-
-
-
-
-                 <div class="product-box__item set col-md-4">
-                    <p class="product-box__title">Сет «Rice max»</p>
-                    <div class="product-wrap">
-						
-                    <div class="product-box__img">
-
-                    	<p class="price price-number"> 530 грн</p>
-                        <img class="img-fluid" src="img/products/IMG_3386.jpeg">
-                    </div>
-                    <div class="product-box__meta">
-
-                        <div class="text-inside">
-                        	<p class="inside-inside">
-                        
-                        	Состав:<br> 3 ролла, гункан 4 шт. Вес: 1600 грам
-								
-                             <span class="more">Подробнее...</span>
-								
-							</p>
-							<span class="more">Подробнее...</span>
-								
-								<div class="show-more">
-									 <img class="show-img" src="img/products/IMG_3386.jpeg" alt="">
-									 <div class="composition-wrap">
-									 		<div class="sostav"><h3>Сет «Rice max»</h3> <p class="price-number"> 530 грн</p></div>
-									 		<div class="composition"><p>Состав:<br> маки с огурцом, маки с авокадо,
-												Ясай-маки (болгарский перец, помидор, авокадо, огурец, такуан, салатный лист), vegan-Калифорния в кунжуте (авокадо, огурец, болгарский перец, такуан), гункан с чукой, 4 шт.</p></div>
-								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
-								</div>
-
-
-								</div>
-                        </div>
-                        
-                        <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
-
-                    </div>
-                </div>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
                 </div>
               
+              <div class="product-box__item set">
+                    <p class="product-box__title">Сет «ВЕГАН»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">300 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3866.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> маки 2шт, Ясай-маки, vegan-Калифорния в кунжуте. Вес: 1600 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3866.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «ВЕГАН»</h3> <p class="price-number"> 300 грн</p></div>
+									 		<div class="composition"><p>Состав:<br> маки с огурцом, маки с авокадо,
+												Ясай-маки (болгарский перец, помидор, авокадо, огурец, такуан, салатный лист), vegan-Калифорния в кунжуте (авокадо, огурец, болгарский перец, такуан), гункан с чукой, 4 шт.</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+                <div class="product-box__item set">
+                    <p class="product-box__title">Сет «ХАРУ»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">430 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3969.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 4 ролла, маки 2 шт. Вес: 1600 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3969.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «ХАРУ»</h3> <p class="price-number"> 430 грн</p></div>
+									 		<div class="composition"><p>Состав:<br> Калифорния в кунжуте с лососем, Калифорния в кунжуте с крабом (NEW), Филадельфия в икре тобико (NEW), маки с авокадо, маки с угрем, Радуга.</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+				<div class="product-box__item set">
+                    <p class="product-box__title">Сет «Универ»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">520 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 5 роллов, 2 хот-ролла. Вес: 1600 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «Универ»</h3> <p class="price-number"> 520 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>ролл Филадельфия, Аляска, Калифорния с крабом, хот-ролл с угрем и ДВЕ НОВИНКИ - ролл Дарк (лосось с/с, угорь, нежный сыр, огурец, чёрный кунжут)  и Тэмпура (креветки в тэмпуре, авокадо, спайс соус, кунжут).</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+                 
+</div>
+</div>               
+<div class=" container-product">
+	<div class=" product-row">
+
+				<div class="product-box__item set">
+                    <p class="product-box__title">Сет «Фирменный»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">475 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 4 ролла. Вес: 1020 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «Фирменный»</h3> <p class="price-number"> 475 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>ролл Филадельфия с тунцом, Красный дракон, Черный дракон, Айова. Вес: 1020 грам</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+
+				<div class="product-box__item set">
+                   <p class="product-box__title">Сет «Фирменный №2»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">443 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 4 ролла. Вес: 1100 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «Фирменный №2»</h3> <p class="price-number"> 443 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Роллы Филадельфия, Фирменный, Мидори, Калифорния в кунж. с угрем. Вес: 1100 грам</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+
+				<div class="product-box__item set">
+                   <p class="product-box__title">Сет «Три дракона»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">358 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 3 ролла. Вес: 750 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «Три дракона»</h3> <p class="price-number"> 358 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Красны дракон, Черный дракон, Зеленый дракон. Вес: 750 грам</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+
+				<div class="product-box__item set">
+                   <p class="product-box__title">Сет «Делюкс»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">366 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 3 ролла. Вес: 790 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «Делюкс»</h3> <p class="price-number"> 366 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Роллы Балтимор, Филадельфия, Черный дракон Вес: 790 грам</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+</div>
+</div>
+
+
+<div class=" container-product">
+	<div class=" product-row">
+
+					<div class="product-box__item set">
+                   <p class="product-box__title">Сет «Калифорния»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">254 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 3 ролла. Вес: 750 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «Калифорния»</h3> <p class="price-number"> 254 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Калифорния с угрем, лососем в кунж, калифорния в икре с лососем. Вес: 750 грам</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+                <div class="product-box__item set">
+                   <p class="product-box__title">Сет «Калифорния №2»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">354 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 4 ролла. Вес: 1000 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «Калифорния №2»</h3> <p class="price-number"> 354 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Калифорния в икре с криветкой, Мидори, Аляска, Калифорния в кунж. с тунцом. Вес: 1000 грам</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+
+                <div class="product-box__item set">
+                   <p class="product-box__title">Сет «Фуне»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">450 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 4 ролла, 1 маки. Вес: 1200 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «Фуне»</h3> <p class="price-number"> 450 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Ролл Филадельфия, Ролл Жареный, Маки с лососем, Калифорния в кунжуте с криветкой, Калифорния В кунжуте с лососем. Вес: 1200 грам</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+                <div class="product-box__item set">
+                   <p class="product-box__title">Сет «Катерипилар»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">325 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 1 ролл и 10 нигири. Вес: 600 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «Катерпилар»</h3> <p class="price-number"> 325 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Ролл Катерпилар, Нигири по 2 шт. с лососем, угрем, тунцом, криветкой, окунём. Вес: 790 грам</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+	</div>
+</div>
+
+
+			
+<div class=" container-product">
+	<div class=" product-row">
+
+		<div class="product-box__item set">
+                   <p class="product-box__title">Сет «Самурай»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">196 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 1 ролл и 10 нигири. Вес: 425 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «Самурай»</h3> <p class="price-number"> 196 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Ролл Катерпилар, Нигири по 2 шт. с лососем, угрем, тунцом, криветкой, окунём. Вес: 425 грам</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+                <div class="product-box__item set">
+                   <p class="product-box__title">Сет «Филадельфия»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">286 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> 3 ролла. Вес: 760 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Сет «Катерпилар»</h3> <p class="price-number"> 286 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Роллы Филадельфия, Калифорния в кунжуте с лососем, Калифорния в икре с крабом . Вес: 760 грам</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+                <div class="product-box__item set">
+                   <p class="product-box__title">Маки ассорти</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">146 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> Маки 3 шт. Вес: 360 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Маки ассорти</h3> <p class="price-number"> 146 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Маки с лососем, маки с тунцом, маки с угрем. Вес: 360 грам</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+                <div class="product-box__item set">
+                   <p class="product-box__title">Суши ассорти</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">259 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3400.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br>12 нигири. Вес: 360 грам
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3400.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>Маки ассорти</h3> <p class="price-number"> 259 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Суши с лососем, тунцом, криветкой, угрем по 3 шт. Вес: 360 грам</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+
+	</div>
+</div>
+
+
+
+			
+<div class=" container-product">
+	<div class=" product-row">			
+
+                <div class="product-box__item roll">
+                    <p class="product-box__title">«Диабло»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">92 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3841.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> Внутри спайс соус авокадо и креветки в темпуре 
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3841.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>«Диабло»</h3> <p class="price-number"> 92 грн</p></div>
+									 		<div class="composition"><p>Состав:<br> спайс соус авокадо и креветки в темпуре.</p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+
+
+                 <div class="product-box__item roll">
+                    <p class="product-box__title">«Тэмпура»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">110 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3353.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> Креветки в тэмпуре, спайс соус, авокадо. 
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3353.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>«Тэмпура»</h3> <p class="price-number"> 110 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Планировка: кунжут.<br>
+									 		Начинка: креветки в тэмпуре, спайс соус, авокадо. </p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
+                 <div class="product-box__item roll">
+                    <p class="product-box__title">«Тэмпура»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">110 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3353.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> Креветки в тэмпуре, спайс соус, авокадо. 
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3353.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>«Тэмпура»</h3> <p class="price-number"> 110 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Планировка: кунжут.<br>
+									 		Начинка: креветки в тэмпуре, спайс соус, авокадо. </p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+                
+                 <div class="product-box__item roll">
+                    <p class="product-box__title">«Тэмпура»</p>
+                    <div class="product-wrap">
+                    	<div class="product-box__img">
+                    		<p class="price price-number">110 грн</p>
+                        	<img class="img-fluid" src="img/products/IMG_3353.jpeg">
+                    	</div>
+                    	<div class="product-box__meta">
+                        	<div class="text-inside">
+                        		<p class="inside-inside">
+                     		   		Состав:<br> Креветки в тэмпуре, спайс соус, авокадо. 
+                             		<span class="more">Подробнее...</span>
+								</p>
+								<span class="more">Подробнее...</span>
+									<div class="show-more">
+									 	<img class="" src="img/products/IMG_3353.jpeg" alt="">
+										 <div class="composition-wrap">
+									 			<div class="sostav"><h3>«Тэмпура»</h3> <p class="price-number"> 110 грн</p></div>
+									 		<div class="composition"><p>Состав:<br>Планировка: кунжут.<br>
+									 		Начинка: креветки в тэмпуре, спайс соус, авокадо. </p>
+											</div>
+								 				<button class="product-box__btn btn-check"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Купить</button>
+										</div>
+									</div>
+                       		 </div>      
+  			                 <button class="product-box__btn btn-check btn-outside"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="buy">Купить</span></button>
+  			        	</div>
+                	</div>
+                </div>
+
+
 </div>
 </div>
 
 <div class="cart">
-	<table>
-		<tr><td>Назвние</td><td>Цена</td></tr>
-		<!-- <tr><td>fillaa</td><td>530</td></tr> -->
-	</table>
+	<div class="cart-wrap">
+		<table>
+			<tr><td>Назвние</td><td>Цена грн.</td></tr>
+		</table>
+
+		<div class="stick">
+			<div class="stick-wrap">
+				<img src="img/sticks.png" alt="">
+				    <div><label for="stick1">Палочки обычные: &nbsp;</label><input class="stick-input" type="number" min="0" name="stick1" id="stick1">Шт.</div>
+				    <div><label for="stick-study">Палочки учебные: &nbsp;</label><input class="stick-input" id="stick-study" type="number" min="0" name="stick1" id="stick-study">Шт.</div>
+
+			</div>
+       		<div>Дополнительно - 15грн порция :</div>
+       		<div class="extra" ><label for="vasabi">Васаби  5 грам:</label><input class="extra-input" id="vasabi" type="number" min="0" name="stick1" oninput="extraVasabi()"></div>
+       		<div class="extra"><label for="soy">Соевый соус 50 грамм:</label><input class="extra-input"  id="soy" type="number" min="0" name="stick1" oninput="extraSoyse()"></div>
+       		<div class="extra" ><label for="imbir">Имбирь 25 грамм:</label><input class="extra-input" id="imbir" type="number" min="0" name="stick1" oninput="extraImbiry()"></div>
+       		<div class="final">Сумма: <span id="final">0</span><span>грн.</span></div>
+       		<button class="btn-check" onclick="ready(this)">Готово!</button>
+       	</div>
+	</div>
 </div>
-<div class="overlay" onclick="closeModal()"></div>	 
+ 
+<div class="modal-window">
+	<div class="product-box__title">Данные для доставки:</div>
+   
+    <input class="nameInput" type="text" placeholder="Имя">
+ 
+    <input class="nameInput numInput" type="text" placeholder="Номер телефона">
+    <input class="nameInput adressInput" type="text" placeholder="Адрес (улица номер дома подъезд)">
+    <button class="btn-check btn-send" onclick="sendIt()">Отправить</button>
+    <button class="btn-check btn-send" id="btn-cancel" onclick="cancel()">Отмена</button>
+</div>
+<div class="overlay" onclick="closeModal()"></div>	
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="bootstrap-4.5.2/dist/js/bootstrap.min.js"></script>
+
+
 </body>
 </html>
